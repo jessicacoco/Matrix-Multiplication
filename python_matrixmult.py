@@ -31,7 +31,21 @@ def print_matrix(matrix_size, matrixname):
             print(matrixname[i][j], end = " ")
         print('\n')
 
-            
+
+def matrix_multiply(matrix_size, matrix_a, matrix_b):
+    results_matrix = [] # make an empty list for the results matrix
+    ans = 0 # make an answer variable to keep track of multiplied matrix values
+    for i in range(matrix_size):
+        new_matrixrow = [] # make an empty list for each row
+        for j in range(matrix_size):
+            for h in range(matrix_size):
+                # calculate product and update the answer
+                product = matrix_a[i][h] * matrix_b[h][j]
+                ans += product
+            new_matrixrow.append(ans)
+            ans = 0 # reset answer so it can be used again
+        results_matrix.append(new_matrixrow)
+    return results_matrix            
     
     
 def main():
@@ -46,8 +60,13 @@ def main():
     elif read_choice == "B":
         matrix_a = read_matrix_input(matrix_size)
         matrix_b = read_matrix_input(matrix_size)
+    print("Matrix A:")
     print_matrix(matrix_size, matrix_a)
+    print("Matrix B:")
     print_matrix(matrix_size, matrix_b)
+    print("The product of the two:")
+    product = matrix_multiply(matrix_size, matrix_a, matrix_b)
+    print_matrix(matrix_size, product)
 
 if __name__=="__main__": 
     main()

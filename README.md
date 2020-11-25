@@ -1,5 +1,5 @@
 # Matrix-Multiplication
-matrix multiplication practice in every language I know
+matrix multiplication practice in Python
 
 python_matrixmult.py: 
 This program written in Python reads in two NxN matricies (whether they be entered manually or given through a text file) and computes the product of those two matricies multiplied together. 
